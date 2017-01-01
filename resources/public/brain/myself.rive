@@ -1,0 +1,12 @@
++ work
+- {:body ["I work at Type Zero"]
+^  :commands ["More about Type Zero" "Past work"]}
+
++ typezero
+- {:body ["more about typezero"]}
+
++ projects
+- {:body ["more about projects"]}
+
++ help
+- {:body ["more about help"]}

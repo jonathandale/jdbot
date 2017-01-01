@@ -1,0 +1,140 @@
+body {
+  background-color: rgb(255, 255, 255);
+  padding: 0;
+  margin: 0;
+  -webkit-overflow-scrolling: touch;
+  overflow: auto !important;
+  height: 100% !important;
+}
+
+body header {
+  z-index: 2;
+}
+
+body header li>p {
+  cursor: pointer;
+}
+
+body header .avatar {
+  width: 60px;
+  transform: translate(-30px, 6px);
+  left: 50%;
+}
+
+body input {
+  outline: none;
+  width: 100%;
+}
+
+body .dialogue {
+  max-height: 100%;
+  margin-bottom: 54px;
+  -webkit-overflow-scrolling: touch;
+}
+
+body .message {
+  margin-top: 4px;
+  padding: 10px 14px;
+  border-radius: 5px;
+}
+
+body .message.bot {
+  background-color: rgba(0,0,0,0.05);
+}
+
+body .message.visitor {
+  background-color: rgb(58,105,204);
+  color: rgb(255, 255, 255);
+}
+
+body .commands {
+  margin-top: 4px;
+  border-radius: 5px;
+  border-color: rgba(0,0,0,0.05);
+  border-width: 1px;
+  border-style: solid;
+}
+
+body .commands li {
+  border: inherit;
+}
+
+.send {
+  background: url(../img/send.svg) no-repeat 50% 50%;
+  background-size: 50%;
+  width: 100%;
+  height: 100%;
+}
+
+.sans-serif {
+  font-family: "avenir next", avenir, helvetica, "helvetica neue", ubuntu, roboto, noto, "segoe ui", arial, sans-serif;
+}
+
+.message-enter .message-inner {
+  opacity: 0.01;
+}
+
+.message-enter.message-enter-active .message-inner {
+  opacity: 1;
+  transition: opacity 0.25s ease-out;
+}
+
+.blue {
+  color: rgb(58,105,204);
+}
+
+.white {
+  color: rgb(255, 255, 255);
+}
+
+.silver {
+  color: rgba(0,0,0,0.05);
+}
+
+.grey {
+  color: rgb(153, 153, 153);
+}
+
+.bdr-silver {
+  border-color: rgba(0,0,0,0.05);
+}
+
+.bdr-grey {
+  border-color: rgb(153, 153, 153);
+}
+
+.bg-blue {
+  background-color: rgb(58,105,204);
+}
+
+.bg-grey {
+  background-color: rgb(153, 153, 153);
+}
+
+.bg-silver {
+  background-color: rgba(0,0,0,0.05);
+}
+
+.bg-white {
+  background-color: rgb(255, 255, 255);
+}
+
+.bg-white-90 {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.bg-white-80 {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+@media (min-width: 50rem) {
+
+  .send {
+    margin-right: 1rem;
+  }
+
+}
