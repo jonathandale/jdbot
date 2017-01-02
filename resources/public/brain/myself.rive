@@ -10,3 +10,41 @@
 
 + help
 - {:body ["more about help"]}
+
++ about
+- {:body ["more about about!"]}
+
+// Tell the user stuff about ourself.
+
++ <bot name>
+- {:body ["Yes?"]}
+
++ <bot name> *
+- {:body ["Yes? {@<star>}"]}
+
++ (what is your name|who are you|who is this)
+- {:body ["I am <bot name>."]}
+- {:body ["You can call me <bot name>."]}
+
++ how old are you
+- {:body ["I'm old enough to remember a Gameboy™, but young enough to still get ID'd occasionally"]}
+
++ where (are you|are you from|do you live)
+- {:body ["I'm from <bot location>."]}
+
++ what (city|town) (are you from|do you live in)
+- {:body ["I'm in <bot city>."]}
+
++ what is your favorite color
+- {:body ["Definitely <bot color>."]}
+
+// + what is your favorite book
+// - The best book I've read was <bot book>.
+
+// + what do you look like
+// - {:body ["I look like this"]}
+
++ (what do you do|what is your occupation|occupation)
+- {:body ["I'm a <bot job>."]}
+
+// + who is your favorite author

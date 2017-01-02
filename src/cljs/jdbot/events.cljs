@@ -26,14 +26,20 @@
 (re-frame/reg-event-db
  :visitor-message
  (fn [db [_ message]]
-   (let [wait #(+ 750 (rand-int 1000))
-         result (first (search message))]
+   (let [wait #(+ 750 (rand-int 1000))]
+    ;  (.log js/console (search message))
      (go
        (<! (timeout (wait)))
-       (rs/get-reply (if result (keyword (get-in result [:item :command])) message)
+       (rs/get-reply message
          (fn [error reply]
-           (let [msg (if-not error (reader/read-string reply) {:body ["Something went awry."]})]
+           (let [msg (if error {:body ["Something went awry."]}
+                               (if (= reply "ERR: No Reply Matched")
+                                  (if-let [match (keyword (get-in (first (search message)) [:item :command]))]
+                                   (reader/read-string (.reply rs/rs "visitor" match))
+                                   {:body ["Sorry, didn't quite understand that, try \"help\""]})
+                                  (reader/read-string reply)))]
              (re-frame/dispatch [:message msg :bot]))))))
+
    (-> db
      (update-in [:dialogue] conj {:message {:body message} :owner :visitor})
      (assoc :input nil))))
