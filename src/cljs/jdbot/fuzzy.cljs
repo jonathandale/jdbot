@@ -1,8 +1,8 @@
 (ns jdbot.fuzzy
   (:require [cljsjs.fuse]))
 
-(def candidates {:projects ["What have you been working on?"
-                            "What projects have you been working on?"
+(def candidates {:projects ["What projects have you been working on?"
+                            "What are you working on?"
                             "Worked on anything interesting?"
                             "Do you have a portfolio?"
                             "Do you have any code samples?"]
@@ -19,21 +19,27 @@
                  :about ["About"
                          "About you"
                          "Tell me about yourself"
-                         "Tell me about you"]})
+                         "Tell me about you"]
+                 :email ["email"
+                         "what is your email address"
+                         "what is your email"
+                         "email address"]
+                 :contact ["contact"
+                           "How can I contact you?"
+                           "What are your contact details?"]})
 
 
 (def options {:shouldSort true
               :threshold 0.3
+              :tokenize true
               :include ["score"]
               :maxPatternLength 32
-              :keys [{:name :question
-                      :weight 0.45}
-                     {:name :command
-                      :weight 0.55}]})
+              :minMatchCharLength 4
+              :keys [:question :command]})
 
 (defonce fuse (js/Fuse. (clj->js (flatten (map (fn [[c qs]]
                                                  (map #(assoc {} :question % :command c) qs)) candidates)))
                         (clj->js options)))
-
+(.log js/console (clj->js options))
 (defn search [term]
   (js->clj (.search fuse (first term)) :keywordize-keys true))

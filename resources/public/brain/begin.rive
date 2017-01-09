@@ -7,14 +7,13 @@
 
 // Bot Variables
 ! var name     = Jon
-! var fullname = Jon Dale
-! var age      = twice as old as half my age
+! var fullname = Jonathan Nigel Dale
 ! var sex      = male
 ! var location = Charlottesville
 ! var city     = Virginia
 ! var eyes     = green
 ! var hair     = brown
-! var color    = blue
+! var color    = grey/blue
 ! var job      = front-end engineer & UI designer
 ! var website  = http://j-d.co
 

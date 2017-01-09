@@ -3,8 +3,11 @@ body {
   padding: 0;
   margin: 0;
   -webkit-overflow-scrolling: touch;
-  overflow: auto !important;
-  height: 100% !important;
+}
+
+body a {
+  color: rgb(58,105,204);
+  text-decoration: none;
 }
 
 body header {
@@ -29,7 +32,6 @@ body input {
 body .dialogue {
   max-height: 100%;
   margin-bottom: 54px;
-  -webkit-overflow-scrolling: touch;
 }
 
 body .message {
@@ -45,6 +47,14 @@ body .message.bot {
 body .message.visitor {
   background-color: rgb(58,105,204);
   color: rgb(255, 255, 255);
+}
+
+body .image {
+  margin-top: 4px;
+}
+
+body .image, body .image img {
+  border-radius: 5px;
 }
 
 body .commands {
@@ -76,7 +86,7 @@ body .commands li {
 
 .message-enter.message-enter-active .message-inner {
   opacity: 1;
-  transition: opacity 0.25s ease-out;
+  transition: opacity 0.25s ease-out 0.05s;
 }
 
 .blue {
@@ -93,6 +103,18 @@ body .commands li {
 
 .grey {
   color: rgb(153, 153, 153);
+}
+
+.muted-90 {
+  opacity: 0.9;
+}
+
+.muted-80 {
+  opacity: 0.8;
+}
+
+.muted-70 {
+  opacity: 0.7;
 }
 
 .bdr-silver {

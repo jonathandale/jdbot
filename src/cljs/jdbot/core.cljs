@@ -26,10 +26,15 @@
                       (cond
                         (< t 12) "morning"
                         (< t 18) "afternoon"
-                        :else "evening"))]
-    (go
-      (<! (timeout 1000))
-      (re-frame/dispatch [:message {:body ["Hello!" (str "Hope your " (time-of-day) "'s going well.")]} :bot]))))
+                        :else "evening"))
+        queue [[1000 [(str "Hello! Hope your " (time-of-day) "'s going well.")]]
+               [2000 ["I'm not really Jon, but a less intelligent chatbot"
+                      "Ask me some questions"]]
+               [4000 ["E.g. \"Where do you work?\"" "Or, \"What projects have you been working on?\""]]]]
+    (doseq [[t m] queue]
+      (go
+        (<! (timeout t))
+        (re-frame/dispatch [:message {:body m} :bot])))))
 
 (defn ^:export init []
   (re-frame/dispatch-sync [:initialize-db])

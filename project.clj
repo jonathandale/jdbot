@@ -1,5 +1,6 @@
 (defproject jdbot "0.1.0-SNAPSHOT"
   :dependencies [[reagent "0.6.0" :exclusions [cljsjs/react]]
+                 [cljsjs/smoothscroll-polyfill "0.3.4-0"]
                  [cljsjs/react-with-addons "15.2.1-0"]
                 ;  [cljsjs/react-with-addons "15.4.0-0"]
                  [org.clojure/clojurescript "1.9.229"]
@@ -21,7 +22,7 @@
   :source-paths ["src/clj"]
 
   :clean-targets ^{:protect false} ["resources/public/js" "target"
-                                    "resources/public/css"]
+                                    "resources/public/css.main.css"]
 
   :figwheel {:css-dirs ["resources/public/css"]}
 
